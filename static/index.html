@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Skript jezici - Alumni API
+        </title>
+    </head>
+    <body>
+        <h1>Skript jezici</h1>
+        <h2>RAF Alumni API</h2>
+        <p>
+            Ovo je jednostavan REST servis čiji API omogućava pristup bazi podataka diplomiranih studenata RAF-a.
+            <br>
+            Uputstvo za upotrebu servisa je u nastavku
+        </p>
+        <pre>
+            GET
+            /                       home ruta, prikazuje ovu stranicu
+            /student                izlistava sve studente
+            /student/find/:string   izlistava studente koji imaju string u imenu, prezimenu, zvanju, temi rada, mentoru
+            /student/:id            daje studenta sa zadatim id-em 
+            /smer                   izlistava sve smerove
+            /smer/:id               izlistava sve studente na tom smeru
+
+            POST
+            /student                u body se očekuje json objekat studenta, radi se insert, ispisuje json novog studenta
+
+            PUT
+            /student/:id            u body se očekuje json objekat studenta, radi se update, ispisuje json studenta nakon update
+
+            DELETE
+            /student/:id            briše studenta po id-u, ispisuje json obrisanog studenta
+        </pre>
+        <h3>GET Linkovi</h3>
+        <a href="http://localhost:8090/reviewers">/student</a>
+        <br>
+        <a href="http://localhost:8090/rating">/smer</a>
+        <br>
+        <a href="http://localhost:8090/">/student/find/првуловић</a>
+        <br>
+        <a href="http://localhost:8090/">/student/ID</a>
+        <br>
+        <a href="http://localhost:8000/movies">/movies</a>
+        <br>
+        <a href="http://localhost:8000/smer/ID">/smer/ID</a>
+    </body>
+</html>
