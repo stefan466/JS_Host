@@ -51,8 +51,8 @@ route.put("/", async (req, res) => {
         rejting.reviewerID = req.reviewerID;
         rejting.movieID = req.movieID;
        
-        await student.save();
-        res.send(student);
+        await rejting.save();
+        res.send(rejting);
 
     } catch(err) {
         console.log(err);
