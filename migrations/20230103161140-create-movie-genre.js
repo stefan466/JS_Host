@@ -2,20 +2,19 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Movie_Casts', {
+    await queryInterface.createTable('Movie_Genres', {
       movieID: {
-        allowNull:false,
+        allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
-        type:Sequelize.INTEGER
+        type: Sequelize.INTEGER
       },
-      actorID: {
-        allowNull:false,
+      genreID: {
+        allowNull: false,
         primaryKey: true,
-        type:Sequelize.INTEGER
+        type: Sequelize.INTEGER
       },
-      role: {
-        type: Sequelize.STRING
-      },
+      
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -27,6 +26,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Movie_Casts');
+    await queryInterface.dropTable('Movie_Genres');
   }
 };
