@@ -16,7 +16,9 @@ module.exports = {
     [
       {actorID:"101", movieID:"901", role:"John Scottie Ferguson"},
       {actorID:"102", movieID:"902", role:"Miss Giddens"},
-      {actorID:"103", movieID:"903", role:"T.E. Lawrence"}
+      {actorID:"103", movieID:"903", role:"T.E. Lawrence"},
+      {actorID:"104", movieID:"904", role:"Michael"},
+      {actorID:"105", movieID:"905", role:"Antonio Salieri"}
       
     
     ], {});

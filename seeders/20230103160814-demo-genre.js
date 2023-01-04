@@ -16,7 +16,11 @@ module.exports = {
     [
       {id:"1001", genre_title:"Action"},
       {id:"1002", genre_title:"Adventure"},
-      {id:"1003", genre_title:"Animation"}
+      {id:"1003", genre_title:"Animation"},
+      {id:"1004", genre_title:"Biography"},
+      {id:"1005", genre_title:"Comedy"}
+
+
       
       
     

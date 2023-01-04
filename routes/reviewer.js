@@ -18,18 +18,10 @@ route.get("/", async (req, res) => {
     }
 });
 
-route.get("/:id", async (req, res) => {
-    try {
-        let rejtingPoRecenzentu = await Rating.findAll({
-            where: {
-                reviewerID: req.params.id
-            }
-        });
-        return res.json(rejtingPoRecenzentu);
 
-    } catch(err) {
-        console.log(err);
-        res.status(500).json({ error: "Greska", data: err });
+route.get('/:name', (req, res) => {
+    Reviewer.findOne({ where: { rev_name: req.params.name } })
+        .then( rows => res.json(rows) )
+        .catch( err => res.status(500).json(err) );
 
-    }
-});
+})

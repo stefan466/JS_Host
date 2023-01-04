@@ -15,8 +15,12 @@ module.exports = {
     await queryInterface.bulkInsert('movie_genres', 
     [
       {movieID:"922", genreID:"1001"},
-      {movieID:"923", genreID:"1002"},
-      {movieID:"924", genreID:"1003"}
+      {movieID:"917", genreID:"1002"},
+      {movieID:"903", genreID:"1003"},
+      {movieID:"912", genreID:"1004"},
+      {movieID:"911", genreID:"1005"}
+
+
       
       
     

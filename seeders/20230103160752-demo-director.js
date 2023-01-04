@@ -14,9 +14,11 @@ module.exports = {
     */
     await queryInterface.bulkInsert('directors', 
     [
-      {id:"1001", first_name:"Alfred", last_name:"Hitchcock"},
-      {id:"1002", first_name:"Jack", last_name:"Clayton"},
-      {id:"1003", first_name:"David", last_name:"Lean"}
+      {id:"201", first_name:"Alfred", last_name:"Hitchcock"},
+      {id:"202", first_name:"Jack", last_name:"Clayton"},
+      {id:"203", first_name:"David", last_name:"Lean"},
+      {id:"204", first_name:"Michael", last_name:"Cimino"},
+      {id:"205", first_name:"Milos", last_name:"Forman"}
       
       
     

@@ -1,15 +1,11 @@
 const express = require("express");
 const { sequelize, Rating, Reviewer } = require("../models");
 
-//Dohvatamo router nase express aplikacije (u redu 2 je dohvacena ista instanca kao i u app.js)
 const route = express.Router();
 
-//Treba nam json() middleware
 route.use(express.json());
-//Treba nam i urlencoded middleware, koji ce da sredi sadrzaj url-a ako ima nase znakove i sl.
 route.use(express.urlencoded({extended:true}));
 
-//Eksportujemo route objekat, da bude vidljiv u app.js
 module.exports = route;
 
 //Ruta /rating
@@ -42,6 +38,23 @@ route.post("/", async (req, res) => {
         res.status(500).json({ error: "Greska", data: err });
     }
 });
+
+route.get("/:id", async (req, res) => {
+    try {
+        let rejtingPoRecenzentu = await Rating.findAll({
+            where: {
+                reviewerID: req.params.id
+            }
+        });
+        return res.json(rejtingPoRecenzentu);
+
+    } catch(err) {
+        console.log(err);
+        res.status(500).json({ error: "Greska", data: err });
+
+    }
+});
+
 
 route.put("/", async (req, res) => {
     try {
