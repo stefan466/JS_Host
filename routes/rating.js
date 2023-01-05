@@ -6,7 +6,6 @@ const route = express.Router();
 route.use(express.json());
 route.use(express.urlencoded({extended:true}));
 
-module.exports = route;
 
 //Ruta /rating
 route.get("/", async (req, res) => {
@@ -72,3 +71,5 @@ route.put("/", async (req, res) => {
         res.status(500).json({ error: "Greska", data: err });
     }
 });
+
+module.exports = route;

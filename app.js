@@ -1,13 +1,13 @@
 const path = require("path");
 const express = require("express");
 const routes = require('./routes/routes');
-const { sequelize,  Reviewer, Rating } = require("./models");
+const { sequelize } = require("./models");
 
 
 const app = express();
 
 app.get("/", (req,res) => {
-    res.sendFile(path.join(__dirname, 'static', 'index.html'));
+    res.sendFile(path.join(__dirname, 'static', 'home.html'));
 });
 
 

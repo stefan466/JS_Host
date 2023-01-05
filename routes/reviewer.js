@@ -4,7 +4,6 @@ const express = require("express");
 const { sequelize, Rating, Reviewer } = require("../models");
 
 const route = express.Router();
-module.exports = route;
 
 
 route.get("/", async (req, res) => {
@@ -25,3 +24,5 @@ route.get('/:name', (req, res) => {
         .catch( err => res.status(500).json(err) );
 
 })
+
+module.exports = route;
