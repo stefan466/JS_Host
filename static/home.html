@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Početna stranica</title>
+        
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="styles.css">
+        <script src="homepage_script.js"></script>
+    </head>
+        <body onload="initLogout()">
+            <h1>
+                Dobrodošli!
+            <h1>
+            <div class="btn-group">
+                <button onclick="document.location.href='./movies_gui/movies.html';" 
+                    type="button" id="filmoviBtn">Filmovi</button>
+                <button onclick="document.location.href='./actors_gui/actors.html';"
+                    type="button" id="glumciBtn">Glumci</button>
+                <button onclick="document.location.href='./directors_gui/directors.html';"
+                    type="button" id="reziserBtn">Reziser</button>
+                <button onclick="document.location.href='./ratings_gui/ratings.html';"
+                    type="button" id="oceneBtn">Ocene</button>
+                <button onclick="document.location.href='./users_gui/users.html';" 
+                    type="button" id="korisniciBtn">Korisnici</button>
+                <button onclick="document.location.href='./genres_gui/genres.html';"
+                    type="button" id="zanroviBtn">Zanrovi</button>
+                <button onclick="document.location.href='./movie_casts_gui/movie_casts.html';"
+                    type="button" id="ulogeBtn">Uloge</button>
+            </div>
+            <hr>
+            <div class="btn-group">
+                <button type="button" id="logout" class="btn btn-primary">Odjavi se</button>
+            </div>
+        </body>
+</html> 
