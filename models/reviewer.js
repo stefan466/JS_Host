@@ -18,7 +18,50 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Reviewer.init({
-    rev_name: DataTypes.STRING
+    first_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: true,
+        notEmpty: true,
+        is: /^[a-zA-Z\s]*$/i
+      }
+    }, 
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: true,
+        notEmpty: true,
+        is: /^[a-zA-Z\s]*$/i
+      }
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        notNull: true,
+        isAlphanumeric: true,
+        len: [6,20]
+      }
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: true
+      }
+    },
+    admin: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+      validate: {
+        notNull: true
+      }
+    }
+
   }, {
     sequelize,
     modelName: 'Reviewer',

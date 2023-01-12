@@ -35,11 +35,25 @@ function authToken(req, res, next) {
 
 }
 
-app.get("/", (req,res) => {
+app.get('/auth_register', (req, res) => {
+     res.sendFile('register.html', { root: './gui' });
+ });
+
+app.get('/auth_login', (req, res) => {
+     res.sendFile('login.html', { root: './gui' });
+ });
+
+app.use((_, res) => res.redirect("/"));
+
+ app.get('/', authToken, (req, res) => {
+    res.sendFile('home.html', { root: './gui' });
+ }); 
+
+/* app.get("/", (req,res) => {
     res.sendFile(path.join(__dirname, 'static', 'home.html'));
 });
 
-
+ */
 /* const reviewerRoutes = require("./routes/reviewer.js");
 app.use("/reviewer", reviewerRoutes);
 
@@ -47,7 +61,7 @@ app.use("/reviewer", reviewerRoutes);
 const ratingRoutes = require("./routes/rating.js");
 app.use("/rating", ratingRoutes); */
 
-app.use('/admin', routes);
+//app.use('/admin', routes);
 
 //Pokrecemo http server na portu 8000
 app.listen({ port:8090 }, async () => {
