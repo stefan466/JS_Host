@@ -3,11 +3,11 @@ function init() {
         e.preventDefault();
 
         const data = {
-            name: document.getElementById('name').value,
+            first_name: document.getElementById('first_name').value,
+            last_name: document.getElementById('last_name').value,
+            username: document.getElementById('username').value,
             password: document.getElementById('password').value,
-            email: document.getElementById('email').value,
             admin: document.getElementById('admin').checked,
-            mod: document.getElementById('mod').checked
         }
 
         fetch('http://localhost:9000/register', {
