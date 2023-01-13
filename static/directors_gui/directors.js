@@ -105,8 +105,8 @@ function initPostDirector() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML +=`<li>ID: ${data.id}, Ime: ${data.first_name},
-                    Prezime: ${data.last_name}`;
+                    document.getElementById('actLst').innerHTML +=`<li>ID: ${el.id}, Ime: ${el.first_name},
+                    Prezime: ${el.last_name}`;
                 }
             });
     });
@@ -128,6 +128,8 @@ function initUpdateDirector() {
 
         
         document.getElementById('dirLst').innerHTML = "";
+        document.getElementById('dirID').value = "";
+        
 
         document.getElementById('first_name').value = "";
         document.getElementById('last_name').value = "";
@@ -145,8 +147,8 @@ function initUpdateDirector() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML += `<li>ID: ${data.id}, Ime: ${data.first_name},
-                    Prezime: ${data.last_name}`;
+                    document.getElementById('actLst').innerHTML += `<li>ID: ${el.id}, Ime: ${el.first_name},
+                    Prezime: ${el.last_name}`;
                 }
             });
     });   

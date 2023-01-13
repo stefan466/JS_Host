@@ -107,8 +107,8 @@ function initPostActor() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML +=  `<li>ID: ${data.id}, Ime: ${data.first_name}, 
-                    Prezime: ${data.last_name},   Pol: ${data.gender}</li>`;
+                    document.getElementById('actLst').innerHTML +=  `<li>ID: ${el.id}, Ime: ${el.first_name}, 
+                    Prezime: ${el.last_name},   Pol: ${el.gender}</li>`;
                 }
             });
     });
@@ -130,6 +130,9 @@ function initUpdateActor() {
 
         
         document.getElementById('actLst').innerHTML = "";
+
+        document.getElementById('actID').value = "";
+
         document.getElementById('first_name').value = "";
         document.getElementById('last_name').value = "";
         document.getElementById('gender').value = "";
@@ -147,8 +150,8 @@ function initUpdateActor() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML += `<li>ID: ${data.id}, Ime: ${data.first_name}, 
-                    Prezime: ${data.last_name},   Pol: ${data.gender}</li>`;
+                    document.getElementById('actLst').innerHTML += `<li>ID: ${el.id}, Ime: ${el.first_name}, 
+                    Prezime: ${el.last_name},   Pol: ${el.gender}</li>`;
                 }
             });
     });   
