@@ -3,7 +3,7 @@ const token = cookies[cookies.length - 1];
 
 
 function getAllMovieCasts() {
-    fetch('http://127.0.0.1:8500/admin/movie_casts', {
+    fetch('http://127.0.0.1:8800/admin/movie_casts', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -33,7 +33,7 @@ function deleteMovieCast() {
 function getMovieCastsById() {
     const id = document.getElementById('movID').value;
 
-    fetch('http://127.0.0.1:8500/admin/movie_casts/' + id, {
+    fetch('http://127.0.0.1:8800/admin/movie_casts/' + id, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -68,7 +68,7 @@ function initPostMovieCast() {
       
         
 
-        fetch('http://127.0.0.1:8500/admin/movie_casts', {
+        fetch('http://127.0.0.1:8800/admin/movie_casts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -112,7 +112,7 @@ function  initUpdateMovieCast() {
         document.getElementById('last_name').value = "";
         document.getElementById('gender').value = "";
 
-        fetch('http://127.0.0.1:8500/admin/actors/' + id, {
+        fetch('http://127.0.0.1:8800/admin/actors/' + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

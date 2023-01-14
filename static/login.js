@@ -1,13 +1,13 @@
 function init() {
-    document.getElementById('loginBtn').addEventListener('click', e=> {
+    document.getElementById('btn').addEventListener('click', e=> {
         e.preventDefault();
 
         const data = {
-            name: document.getElementById('name').value,
+            name: document.getElementById('username').value,
             password: document.getElementById('password').value
         }
         
-        fetch('http://localhost:9000/login', {
+        fetch('http://localhost:9400/auth_login', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
@@ -18,7 +18,7 @@ function init() {
                 alert(el.msg);
             } else {
                 document.cookie = `token=${el.token};SameSite=Lax`;
-                window.location.href = '/admin/';
+                window.location.href = 'home.html';
 
             }
         });

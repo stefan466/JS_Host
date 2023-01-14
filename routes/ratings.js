@@ -8,7 +8,7 @@ route.use(express.urlencoded({extended:true}));
 
 
 //Ruta /rating
-route.get("/", async (req, res) => {
+route.get("/ratings", async (req, res) => {
     try{
         const sviRejtinzi = await Rating.findAll();
         return res.json(sviRejtinzi);

@@ -6,7 +6,7 @@ route.use(express.json());
 route.use(express.urlencoded({ extended: true }));
 
 
-route.get('/', (req, res) => {
+route.get('/directors', (req, res) => {
     Director.findAll()
         .then( rows => res.json(rows) )
         .catch( err => res.status(500).json(err) );

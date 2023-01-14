@@ -2,7 +2,7 @@ const cookies = document.cookie.split('=');
 const token = cookies[cookies.length - 1];
 
 function getAllReviewers() {
-    fetch('http://127.0.0.1:8500/admin/reviewers', {
+    fetch('http://127.0.0.1:8800/admin/reviewers', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -28,7 +28,7 @@ function getAllReviewers() {
 function getReviewerById() {
     const id = document.getElementById('revID').value;
 
-    fetch('http://127.0.0.1:8500/admin/reviewers/' + id, {
+    fetch('http://127.0.0.1:8800/admin/reviewers/' + id, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -52,7 +52,7 @@ function getReviewerById() {
 function deleteReviewer() {
     const id = document.getElementById('revID').value;
 
-    fetch('http://127.0.0.1:8500/admin/reviewers/' + id, {
+    fetch('http://127.0.0.1:8800/admin/reviewers/' + id, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -95,7 +95,7 @@ function initPostReviewer() {
         document.getElementById('password').value = "";
         document.getElementById('admin').checked = false;
 
-        fetch('http://127.0.0.1:8500/admin/reviewers', {
+        fetch('http://127.0.0.1:8800/admin/reviewers', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -141,7 +141,7 @@ function initUpdateReviewer() {
         document.getElementById('admin').checked = false;
 
 
-        fetch('http://127.0.0.1:8500/admin/reviewers/' + id, {
+        fetch('http://127.0.0.1:8800/admin/reviewers/' + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,11 +1,13 @@
-const express = require("express");
+const express = require('express');
+const { sequelize, Actor } = require('../models');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const { idSchema, actorSchema } = require('../validation.js');
 const route = express.Router();
-const { Actor } = require('../models');
-
 route.use(express.json());
 route.use(express.urlencoded({ extended: true }));
 
-route.get('/', (req, res) => {
+route.get('/actors', (req, res) => {
     Actor.findAll()
         .then( rows => res.json(rows) )
         .catch( err => res.status(500).json(err) );

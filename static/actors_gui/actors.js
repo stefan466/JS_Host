@@ -3,7 +3,7 @@ const token = cookies[cookies.length - 1];
 
 
 function getAllActors() {
-    fetch('http://127.0.0.1:8500/admin/actors', {
+    fetch('http://127.0.0.1:8800/admin/actors', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -28,7 +28,7 @@ function getAllActors() {
 function deleteActor() {
     const id = document.getElementById('actID').value;
 
-    fetch('http://127.0.0.1:8500/admin/actors/' + id, {
+    fetch('http://127.0.0.1:8800/admin/actors/' + id, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -54,7 +54,7 @@ function deleteActor() {
 function getActorById() {
     const id = document.getElementById('actID').value;
 
-    fetch('http://127.0.0.1:8500/admin/actors/' + id, {
+    fetch('http://127.0.0.1:8800/admin/actors/' + id, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -94,7 +94,7 @@ function initPostActor() {
         document.getElementById('gender').value = "";
         
 
-        fetch('http://127.0.0.1:8500/admin/actors', {
+        fetch('http://127.0.0.1:8800/admin/actors', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -137,7 +137,7 @@ function initUpdateActor() {
         document.getElementById('last_name').value = "";
         document.getElementById('gender').value = "";
 
-        fetch('http://127.0.0.1:8500/admin/actors/' + id, {
+        fetch('http://127.0.0.1:8800/admin/actors/' + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

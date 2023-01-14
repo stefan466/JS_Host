@@ -3,7 +3,7 @@ const path = require('path');
 const { sequelize } = require('./models');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const PORT = 8200;
+const PORT = 8080;
 
 const app = express();
 
@@ -36,33 +36,23 @@ function authToken(req, res, next) {
 
 }
 
-app.get('/auth_register', (req, res) => {
-     res.sendFile('register.html', { root: './gui' });
- });
-
-app.get('/auth_login', (req, res) => {
-     res.sendFile('login.html', { root: './gui' });
- });
-
-app.use((_, res) => res.redirect("/"));
-
- app.get('/', authToken, (req, res) => {
-    res.sendFile('home.html', { root: './gui' });
- }); 
-
-/* app.get("/", (req,res) => {
-    res.sendFile(path.join(__dirname, 'static', 'home.html'));
+app.get('/register', (req, res) => {
+    res.sendFile('register.html', { root: './static' });
 });
 
- */
-/* const reviewerRoutes = require("./routes/reviewer.js");
-app.use("/reviewer", reviewerRoutes);
+app.get('/login', (req, res) => {
+    res.sendFile('login.html', { root: './static' });
+});
+
+app.get('/', (req,authToken, res) => {
+    res.sendFile('home.html', { root: './static' });
+}); 
 
 
-const ratingRoutes = require("./routes/rating.js");
-app.use("/rating", ratingRoutes); */
 
-//app.use('/admin', routes);
+app.use(express.static(path.join(__dirname, 'static')));
+
+
 
 //Pokrecemo http server na portu 8000
 sequelize.authenticate()

@@ -2,7 +2,7 @@ const cookies = document.cookie.split('=');
 const token = cookies[cookies.length - 1];
 
 function getAllRatinRgs() {
-    fetch('http://127.0.0.1:8500/admin/ratings', {
+    fetch('http://127.0.0.1:8800/admin/ratings', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -28,7 +28,7 @@ function getAllRatinRgs() {
 function getRatingById() {
     const id = document.getElementById('ratID').value;
 
-    fetch('http://127.0.0.1:8500/admin/ratings/' + id, {
+    fetch('http://127.0.0.1:8800/admin/ratings/' + id, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -52,7 +52,7 @@ function getRatingById() {
 function deleteRating() {
     const id = document.getElementById('ratID').value;
 
-    fetch('http://127.0.0.1:8500/admin/ratings/' + id, {
+    fetch('http://127.0.0.1:8800/admin/ratings/' + id, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -91,7 +91,7 @@ function initPostRating() {
        
         
 
-        fetch('http://127.0.0.1:8500/admin/ratings', {
+        fetch('http://127.0.0.1:8800/admin/ratings', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ function initUpdateRating() {
         document.getElementById('num_of_ratings').value = "";
        
 
-        fetch('http://127.0.0.1:8500/admin/ratings/' + id, {
+        fetch('http://127.0.0.1:8800/admin/ratings/' + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,5 +1,5 @@
 function init() {
-    document.getElementById('registerBtn').addEventListener('click', e=> {
+    document.getElementById('btn').addEventListener('click', e=> {
         e.preventDefault();
 
         const data = {
@@ -10,7 +10,7 @@ function init() {
             admin: document.getElementById('admin').checked,
         }
 
-        fetch('http://localhost:9000/register', {
+        fetch('http://localhost:9400/auth_register', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)

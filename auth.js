@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 require('dotenv').config();
 const { reviewerSchema, loginSchema } = require('./validation.js');
-const PORT = 9200;
+const PORT = 9400;
 const app = express();
 
 var corsOptions = {
@@ -43,9 +43,36 @@ app.post('/auth_register', (req, res) => {
 });
 
 app.post('/auth_login', (req, res) => {
+  
+    console.log("Usao u /login");
+    console.log(req.body.username);
+
+    Reviewer.findOne({ where: { username: req.body.username } })
+        .then( usr => {
+
+            if (bcrypt.compareSync(req.body.password, usr.password)) {
+                const obj = {
+                    revId: usr.id,
+                    reviewer: usr.username
+                };
+
+                const token = jwt.sign(obj, process.env.ACCESS_TOKEN_SECRET);
+                res.json({ token: token, userId: usr.id});
+                
+            } else {
+                res.status(400).json({ msg: "Invalid credentials" });
+            }
+        })
+        .catch( err => res.status(500).json(err) );
+
+});
+
+/* app.post('/auth_login', (req, res) => {
+    console.log("Request: " + req.body.username + req.body.password);
     const result = loginSchema.validate(req.body);
 
     if(result.error){
+        //console.log("Tekst: " + req.body.username);
         res.status(422).json({ msg: 'Greška u validaciji: ' + result.error.message });
     } else {
         Reviewer.findOne({ where: { username: req.body.username } })
@@ -68,7 +95,7 @@ app.post('/auth_login', (req, res) => {
     }
 
 });
-
+ */
 
 
 

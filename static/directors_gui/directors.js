@@ -3,7 +3,7 @@ const token = cookies[cookies.length - 1];
 
 
 function getAllDirectors() {
-    fetch('http://127.0.0.1:8500/admin/directors', {
+    fetch('http://127.0.0.1:8800/admin/directors', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -28,7 +28,7 @@ function getAllDirectors() {
 function deleteDirector() {
     const id = document.getElementById('orgId').value;
 
-    fetch('http://127.0.0.1:8500/admin/directors/' + id, {
+    fetch('http://127.0.0.1:8800/admin/directors/' + id, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -54,7 +54,7 @@ function deleteDirector() {
 function getDirectorById() {
     const id = document.getElementById('dirID').value;
 
-    fetch('http://127.0.0.1:8500/admin/organisers/' + id, {
+    fetch('http://127.0.0.1:8800/admin/organisers/' + id, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -92,7 +92,7 @@ function initPostDirector() {
        
         
 
-        fetch('http://127.0.0.1:8500/admin/', {
+        fetch('http://127.0.0.1:8800/admin/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -134,7 +134,7 @@ function initUpdateDirector() {
         document.getElementById('first_name').value = "";
         document.getElementById('last_name').value = "";
         
-        fetch('http://127.0.0.1:8500/admin/directors/' + id, {
+        fetch('http://127.0.0.1:8800/admin/directors/' + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

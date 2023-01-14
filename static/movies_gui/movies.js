@@ -2,7 +2,7 @@ const cookies = document.cookie.split('=');
 const token = cookies[cookies.length - 1];
 
 function getAllMovies() {
-    fetch('http://127.0.0.1:8500/admin/movies', {
+    fetch('http://127.0.0.1:8800/admin/movies', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -12,15 +12,15 @@ function getAllMovies() {
             document.getElementById("movLst").innerHTML="";
             const lst = document.getElementById("movLst");
 
-            if(data.msg) {
+            /* if(data.msg) {
                 alert(data.msg);
-            } else {
+            } else { */
                 data.forEach(el => {
-                    lst.innerHTML += `<li>ID: ${data.id}, Naziv filma: ${data.mov_title},
-                     Jezik: ${data.mov_lang}, Godina: ${data.mov_year}</li>, Vreme trajanja: ${data.mov_time}, 
-                     Drzava: ${data.mov_rel_country}`;
+                    lst.innerHTML += `<li>ID: ${el.id}, Naziv filma: ${el.mov_title},
+                     Jezik: ${el.mov_lang}, Godina: ${el.mov_year}</li>, Vreme trajanja: ${el.mov_time}, 
+                     Drzava: ${el.mov_rel_country}`;
                 });
-            }
+           // }
     });
 
 }
@@ -28,7 +28,7 @@ function getAllMovies() {
 function getMovieById() {
     const id = document.getElementById('movID').value;
 
-    fetch('http://127.0.0.1:8500/admin/movies/' + id, {
+    fetch('http://127.0.0.1:8800/admin/movies/' + id, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -55,7 +55,7 @@ function getMovieById() {
 function deleteMovie() {
     const id = document.getElementById('movID').value;
 
-    fetch('http://127.0.0.1:8500/admin/movies/' + id, {
+    fetch('http://127.0.0.1:8800/admin/movies/' + id, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -103,7 +103,7 @@ function initPostMovie() {
 
         
 
-        fetch('http://127.0.0.1:8500/admin/movies', {
+        fetch('http://127.0.0.1:8800/admin/movies', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -152,7 +152,7 @@ function initUpdateMovie() {
         document.getElementById('mov_time').value = "";
         document.getElementById('mov_rel_country').value = "";
 
-        fetch('http://127.0.0.1:8500/admin/movies/' + id, {
+        fetch('http://127.0.0.1:8800/admin/movies/' + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

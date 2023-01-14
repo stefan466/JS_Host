@@ -3,7 +3,7 @@ const token = cookies[cookies.length - 1];
 
 
 function getAllGenres() {
-    fetch('http://127.0.0.1:8500/admin/genres', {
+    fetch('http://127.0.0.1:8800/admin/genres', {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -27,7 +27,7 @@ function getAllGenres() {
 function deleteGenre() {
     const id = document.getElementById('genID').value;
 
-    fetch('http://127.0.0.1:8500/admin/genres/' + id, {
+    fetch('http://127.0.0.1:8800/admin/genres/' + id, {
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -53,7 +53,7 @@ function getGenreById() {
 
     const id = document.getElementById('genID').value;
 
-    fetch('http://127.0.0.1:8500/admin/genres/' + id, {
+    fetch('http://127.0.0.1:8800/admin/genres/' + id, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -89,7 +89,7 @@ function initPostGenre() {
         
         
 
-        fetch('http://127.0.0.1:8500/admin/genres', {
+        fetch('http://127.0.0.1:8800/admin/genres', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -129,7 +129,7 @@ function initUpdateGenre() {
         document.getElementById('genre_title').value = "";
         
 
-        fetch('http://127.0.0.1:8500/admin/genres/' + id, {
+        fetch('http://127.0.0.1:8800/admin/genres/' + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

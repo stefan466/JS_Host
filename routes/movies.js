@@ -7,7 +7,8 @@ const route = express.Router();
 route.use(express.json());
 route.use(express.urlencoded({ extended: true }));
 
-route.get('/movies', (req, res) => {
+route.get('/movies',  (req, res) => {
+   
     Movie.findAll()
         .then( rows => res.json(rows) )
         .catch( err => res.status(500).json(err) );
