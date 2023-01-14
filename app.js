@@ -1,8 +1,9 @@
-const path = require("path");
-const express = require("express");
-const routes = require('./routes/routes');
-const { sequelize } = require("./models");
-
+const express = require('express');
+const path = require('path');
+const { sequelize } = require('./models');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const PORT = 8200;
 
 const app = express();
 
@@ -64,6 +65,10 @@ app.use("/rating", ratingRoutes); */
 //app.use('/admin', routes);
 
 //Pokrecemo http server na portu 8000
-app.listen({ port:8090 }, async () => {
-    console.log("Started server on localhost:8090");
+sequelize.authenticate()
+    .then(() => console.log('Konektovani ste na bazu.'))
+    .catch(err => console.log('Greska: ' + err));
+
+app.listen(PORT, () => {
+    console.log(`Aplikacioni servis je pokrenut: http://127.0.0.1:${PORT}`)
 });

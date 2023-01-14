@@ -12,7 +12,7 @@ route.get("/", async (req, res) => {
         return res.json(sviRecenzenti);
 
     } catch(err) {
-        console.log(err);
+        console.log(err); 
         res.status(500).json({ error: "Greska", data: err });
     }
 });
