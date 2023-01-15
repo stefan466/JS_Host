@@ -17,8 +17,8 @@ function getAllDirectors() {
                     alert(data.msg);
                 } else {
                     data.forEach( el => {
-                        lst.innerHTML += `<li>ID: ${data.id}, Ime: ${data.first_name},
-                        Prezime: ${data.last_name}`;
+                        lst.innerHTML += `<li>ID: ${el.id}, Ime: ${el.first_name},
+                        Prezime: ${el.last_name}`;
                     });
                 }
         });
@@ -26,7 +26,7 @@ function getAllDirectors() {
 }
 
 function deleteDirector() {
-    const id = document.getElementById('orgId').value;
+    const id = document.getElementById('dirID').value;
 
     fetch('http://127.0.0.1:8800/admin/directors/' + id, {
         method: 'DELETE',
@@ -36,9 +36,9 @@ function deleteDirector() {
     })
         .then( res => res.json() )
             .then( data => {
-                document.getElementById("actLst").innerHTML = "";
-                document.getElementById('actLst').value = "";
-                const lst = document.getElementById('actLst');
+                document.getElementById("dirLst").innerHTML = "";
+                document.getElementById('dirLst').value = "";
+                const lst = document.getElementById('dirLst');
                 
                 if(data.msg){
                     alert(data.msg);
@@ -54,7 +54,7 @@ function deleteDirector() {
 function getDirectorById() {
     const id = document.getElementById('dirID').value;
 
-    fetch('http://127.0.0.1:8800/admin/organisers/' + id, {
+    fetch('http://127.0.0.1:8800/admin/directors/' + id, {
         headers: {
             'Authorization': `Bearer ${token}`
         }
@@ -62,19 +62,17 @@ function getDirectorById() {
         .then( res => res.json() )
             .then( data => {
                 document.getElementById("dirLst").innerHTML = "";
-                document.getElementById('dirID').value = "";
-                const lst = document.getElementById('orgLst');
-                
+                document.getElementById('dirLst').value = "";
+                const lst = document.getElementById('dirLst');
+        
                 if(data.msg){
                     alert(data.msg);
                 } else {
-                    lst.innerHTML += `<li>ID: ${data.id}, Ime: ${data.first_name},
-                    Prezime: ${data.last_name}`;
-                }  
-        });
-
+                     lst.innerHTML += `<li>ID: ${data.id}, Ime: ${data.first_name}, 
+                     Prezime: ${data.last_name}`;
+        }  
+});
 }
-
 function initPostDirector() {
     
     document.getElementById('btn').addEventListener('click', e => {
@@ -92,7 +90,7 @@ function initPostDirector() {
        
         
 
-        fetch('http://127.0.0.1:8800/admin/', {
+        fetch('http://127.0.0.1:8800/admin/directors', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -105,7 +103,7 @@ function initPostDirector() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML +=`<li>ID: ${el.id}, Ime: ${el.first_name},
+                    document.getElementById('dirLst').innerHTML +=`<li>ID: ${el.id}, Ime: ${el.first_name},
                     Prezime: ${el.last_name}`;
                 }
             });
@@ -147,7 +145,7 @@ function initUpdateDirector() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML += `<li>ID: ${el.id}, Ime: ${el.first_name},
+                    document.getElementById('dirLst').innerHTML += `<li>ID: ${el.id}, Ime: ${el.first_name},
                     Prezime: ${el.last_name}`;
                 }
             });

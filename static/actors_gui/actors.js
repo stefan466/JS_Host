@@ -17,8 +17,8 @@ function getAllActors() {
                 alert(data.msg);
             } else {
                 data.forEach(el => {
-                    lst.innerHTML += `<li>ID: ${data.id}, Ime: ${data.first_name},
-                     Prezime: ${data.last_name}, Pol: ${data.gender}</li>`;
+                    lst.innerHTML += `<li>ID: ${el.id}, Ime: ${el.first_name},
+                     Prezime: ${el.last_name}, Pol: ${el.gender}</li>`;
                 });
             }
     });
@@ -125,7 +125,7 @@ function initUpdateActor() {
         const data = {
             first_name: document.getElementById('first_name').value,
             last_name: document.getElementById('last_name').value,
-            gender: document.getElementById('president').value,
+            gender: document.getElementById('gender').value,
         };
 
         

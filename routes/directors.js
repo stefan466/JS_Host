@@ -39,13 +39,14 @@ route.get('/directors', (req, res) => {
 
 route.get('/directors/:id', (req, res) => {
     
+     
     Director.findOne({ where: { id: req.params.id } })
         .then( usr => {
             const result = idSchema.validate(req.params);
             if(result.error){
                 res.status(422).json({ msg: 'Greška u validaciji: ' + result.error.message });
             } else {
-                Genre.findOne({ where: { id: req.params.id } })
+                Director.findOne({ where: { id: req.params.id } })
                     .then( rows => res.json(rows) )
                     .catch( err => res.status(500).json(err) ); 
             }
@@ -81,7 +82,7 @@ route.put('/directors/:id', (req, res) => {
 
 });
 
-route.delete('/ratings/:id', (req, res) => {
+route.delete('/directors/:id', (req, res) => {
     
     Director.findOne({ where: { id: req.params.id } })
         .then( dir => {

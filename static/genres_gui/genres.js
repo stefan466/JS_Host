@@ -10,14 +10,14 @@ function getAllGenres() {
     })
     .then(res => res.json())
         .then(data => {
-            document.getElementById("actLst").innerHTML="";
+            document.getElementById("genLst").innerHTML="";
             const lst = document.getElementById("genLst");
 
             if(data.msg) {
                 alert(data.msg);
             } else {
                 data.forEach(el => {
-                    lst.innerHTML += `<li>ID: ${data.id}, Zanr: ${data.genre_title}`;
+                    lst.innerHTML += `<li>ID: ${el.id}, Zanr: ${el.genre_title}`;
                 });
             }
     });
@@ -84,7 +84,7 @@ function initPostGenre() {
             
         };
 
-        document.getElementById('actLst').innerHTML = "";
+        document.getElementById('genLst').innerHTML = "";
         document.getElementById('genre_title').value = "";
         
         
@@ -102,7 +102,7 @@ function initPostGenre() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML += `<li>ID: ${el.id}, Zanr: ${el.genre_title}` ;
+                    document.getElementById('genLst').innerHTML += `<li>ID: ${el.id}, Zanr: ${el.genre_title}` ;
                 }
             });
     });
@@ -142,7 +142,7 @@ function initUpdateGenre() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('orgLst').innerHTML +=`<li>ID: ${el.id}, Zanr: ${el.genre_title}`;
+                    document.getElementById('genLst').innerHTML +=`<li>ID: ${el.id}, Zanr: ${el.genre_title}`;
                 }
             });
     });   

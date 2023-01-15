@@ -93,7 +93,7 @@ function initPostMovie() {
             
         };
 
-        document.getElementById('actLst').innerHTML = "";
+        document.getElementById('movLst').innerHTML = "";
 
         document.getElementById('mov_title').value = "";
         document.getElementById('mov_lang').value = "";
@@ -116,7 +116,7 @@ function initPostMovie() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML += `<li>ID: ${el.id}, Naziv filma: ${el.mov_title},
+                    document.getElementById('movLst').innerHTML += `<li>ID: ${el.id}, Naziv filma: ${el.mov_title},
                     Jezik: ${el.mov_lang}, Godina: ${el.mov_year}</li>, Vreme trajanja: ${el.mov_time}, 
                     Drzava: ${el.mov_rel_country}`;
                 }
@@ -165,7 +165,7 @@ function initUpdateMovie() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML += `<li>ID: ${el.id}, Naziv filma: ${el.mov_title},
+                    document.getElementById('movLst').innerHTML += `<li>ID: ${el.id}, Naziv filma: ${el.mov_title},
                     Jezik: ${el.mov_lang}, Godina: ${el.mov_year}</li>, Vreme trajanja: ${el.mov_time}, 
                     Drzava: ${el.mov_rel_country}`;
                 }

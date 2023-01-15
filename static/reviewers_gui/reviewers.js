@@ -108,7 +108,7 @@ function initPostReviewer() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('usrLst').innerHTML += `<li>ID: ${el.id}, Ime: ${el.first_name}, Prezime: ${el.last_name},  
+                    document.getElementById('revLst').innerHTML += `<li>ID: ${el.id}, Ime: ${el.first_name}, Prezime: ${el.last_name},  
                     Username: ${el.username}`;
                 }
             });
@@ -154,7 +154,7 @@ function initUpdateReviewer() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('usrLst').innerHTML += `<li>ID: ${el.id}, Ime: ${el.first_name}, Prezime: ${el.last_name},  
+                    document.getElementById('revLst').innerHTML += `<li>ID: ${el.id}, Ime: ${el.first_name}, Prezime: ${el.last_name},  
                     Username: ${el.username}`;
                 }
             });
