@@ -57,7 +57,7 @@ route.get('/genres/:id', (req, res) => {
 
 route.post('/genres', (req, res) => {
                     Genre.create({ 
-                        genre_title: req.body.first_name,
+                        genre_title: req.body.genre_title,
                     })
                         .then( rows => res.json(rows) )
                         .catch( err => res.status(500).json(err) );
@@ -79,8 +79,17 @@ route.put('/genres/:id', (req, res) => {
 
 });
 
-route.delete('/ratings/:id', (req, res) => {
-    
+route.delete('/genres/:id', (req, res) => {
+
+    Genre.findOne({ where: { id: req.params.id } })
+    .then( gen => {
+
+        gen.destroy()
+            .then( rows => res.json(rows) )
+            .catch( err => res.status(500).json(err) );
+    })
+    .catch( err => res.status(500).json(err) );
+    /* 
     Genre.findOne({ where: { id: req.params.id } })
         .then( gen => {
             if (gen.admin) {
@@ -100,7 +109,7 @@ route.delete('/ratings/:id', (req, res) => {
                 res.status(403).json({ msg: "Nemate pravo na ovu akciju."});
             }
         })
-        .catch( err => res.status(500).json(err) );
+        .catch( err => res.status(500).json(err) ); */
     
  
 });

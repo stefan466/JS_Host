@@ -85,8 +85,16 @@ route.put('/movie_directions/:id', (req, res) => {
 });
 
 route.delete('/movie_directions/:id', (req, res) => {
-    
     Movie_Direction.findOne({ where: { id: req.params.id } })
+    .then( md => {
+
+        md.destroy()
+            .then( rows => res.json(rows) )
+            .catch( err => res.status(500).json(err) );
+    })
+    .catch( err => res.status(500).json(err) );
+    
+    /* Movie_Direction.findOne({ where: { id: req.params.id } })
         .then( mov => {
             if (mov.admin) {
                 const result = idSchema.validate(req.params);
@@ -105,7 +113,7 @@ route.delete('/movie_directions/:id', (req, res) => {
                 res.status(403).json({ msg: "Nemate pravo na ovu akciju."});
             }
         })
-        .catch( err => res.status(500).json(err) );
+        .catch( err => res.status(500).json(err) ); */
     
  
 });

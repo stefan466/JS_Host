@@ -43,6 +43,23 @@ app.post('/auth_register', (req, res) => {
 });
 
 app.post('/auth_login', (req, res) => {
+    /* Reviewer.findOne({ where: { username: req.body.username } })
+        .then( usr => {
+
+            if (bcrypt.compareSync(req.body.password, usr.password)) {
+                const obj = {
+                    revId: usr.id,
+                    reviewer: usr.username
+                };
+
+                const token = jwt.sign(obj, process.env.ACCESS_TOKEN_SECRET);
+                res.json({ token: token, userId: usr.id});
+                
+            } else {
+                res.status(400).json({ msg: "Uneseni kredencijali nisu validni."});
+            }
+        })
+        .catch( err => res.status(500).json( {msg: "Uneseni kredencijali nisu validni."}) ); */
   
     console.log("Usao u /login");
     console.log(req.body.username);
@@ -63,7 +80,7 @@ app.post('/auth_login', (req, res) => {
                 res.status(400).json({ msg: "Invalid credentials" });
             }
         })
-        .catch( err => res.status(500).json(err) );
+        .catch( err => res.status(500).json({err}) );
 
 });
 

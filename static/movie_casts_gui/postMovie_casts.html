@@ -17,7 +17,15 @@
                 <div class="col">
                     <form method="post" action="/admin/movie_casts">
                         <div class="mb-3">
-                            <label for="role" class="form-label">Naziv uloge</label>
+                            <label for="role" class="form-label">Movie ID:</label>
+                            <input type="number" required class="form-control" id="movID" name="role">
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">actor ID:</label>
+                            <input type="number" required class="form-control" id="actID" name="role">
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Naziv uloge:</label>
                             <input type="text" required class="form-control" id="role" name="role">
                         </div>
                         <button type="submit" class="btn btn-primary" id="btn">Pošalji</button>

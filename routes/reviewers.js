@@ -23,9 +23,7 @@ function authToken(req, res, next) {
 //route.use(authToken);
 
 route.get('/reviewers', (req, res) => {
-    Reviewer.findAll()
-                .then( rows => res.json(rows) )
-                .catch( err => res.status(500).json(err) );
+    
     /* 
     Reviewer.findOne({ where: { id: req.params.id } })
         .then( usr => {
@@ -55,7 +53,7 @@ route.get('/reviewers/:id', (req, res) => {
 
 });
 
-route.post('/reviewers', (req, res) => {
+route.post('/post_reviewers', (req, res) => {
                     Reviewer.create({ 
                         first_name: req.body.first_name,
                         last_name: req.body.last_name,
@@ -89,27 +87,15 @@ route.put('/reviewers/:id', (req, res) => {
 });
 
 route.delete('/reviewers/:id', (req, res) => {
-    
     Reviewer.findOne({ where: { id: req.params.id } })
-        .then( rev => {
-            if (rev.admin) {
-                const result = idSchema.validate(req.params);
-                if(result.error){
-                    res.status(422).json({ msg: 'Greška u validaciji: ' + result.error.message });
-                } else {
-                    Reviewer.findOne({ where: { id: req.params.id } })
-                    .then( rev => {
-                        rev.destroy()
-                            .then( rows => res.json(rows) )
-                            .catch( err => res.status(500).json(err) );
-                    })
-                    .catch( err => res.status(500).json(err) );
-                }
-            } else {
-                res.status(403).json({ msg: "Nemate pravo na ovu akciju."});
-            }
-        })
-        .catch( err => res.status(500).json(err) );
+    .then( rev => {
+
+        rev.destroy()
+            .then( rows => res.json(rows) )
+            .catch( err => res.status(500).json(err) );
+    })
+    .catch( err => res.status(500).json(err) );
+   
     
  
 });

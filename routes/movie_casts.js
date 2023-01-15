@@ -68,7 +68,7 @@ route.post('/movie_casts', (req, res) => {
 
 });
 
-route.put('/movies/:id', (req, res) => {
+route.put('/movie_casts/:id', (req, res) => {
     Movie_Cast.findOne({ where: { id: req.params.id }})
     .then( mov => {
         mov.movieID = req.body.movieID,
@@ -86,9 +86,17 @@ route.put('/movies/:id', (req, res) => {
 
 });
 
-route.delete('/movies/:id', (req, res) => {
-    
+route.delete('/movie_casts/:id', (req, res) => {
     Movie_Cast.findOne({ where: { id: req.params.id } })
+    .then( mc => {
+
+        mc.destroy()
+            .then( rows => res.json(rows) )
+            .catch( err => res.status(500).json(err) );
+    })
+    .catch( err => res.status(500).json(err) );
+    
+ /*    Movie_Cast.findOne({ where: { id: req.params.id } })
         .then( mov => {
             if (mov.admin) {
                 const result = idSchema.validate(req.params);
@@ -107,7 +115,7 @@ route.delete('/movies/:id', (req, res) => {
                 res.status(403).json({ msg: "Nemate pravo na ovu akciju."});
             }
         })
-        .catch( err => res.status(500).json(err) );
+        .catch( err => res.status(500).json(err) ); */
     
  
 });

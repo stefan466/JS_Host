@@ -85,8 +85,16 @@ route.put('/movie_genres/:id', (req, res) => {
 });
 
 route.delete('/movie_genres/:id', (req, res) => {
-    
     Movie_Genre.findOne({ where: { id: req.params.id } })
+    .then( mg => {
+
+        mg.destroy()
+            .then( rows => res.json(rows) )
+            .catch( err => res.status(500).json(err) );
+    })
+    .catch( err => res.status(500).json(err) );
+    
+  /*   Movie_Genre.findOne({ where: { id: req.params.id } })
         .then( mov => {
             if (mov.admin) {
                 const result = idSchema.validate(req.params);
@@ -105,7 +113,7 @@ route.delete('/movie_genres/:id', (req, res) => {
                 res.status(403).json({ msg: "Nemate pravo na ovu akciju."});
             }
         })
-        .catch( err => res.status(500).json(err) );
+        .catch( err => res.status(500).json(err) ); */
     
  
 });

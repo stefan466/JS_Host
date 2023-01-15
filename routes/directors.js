@@ -84,7 +84,16 @@ route.put('/directors/:id', (req, res) => {
 
 route.delete('/directors/:id', (req, res) => {
     
+
     Director.findOne({ where: { id: req.params.id } })
+    .then( dir => {
+
+        dir.destroy()
+            .then( rows => res.json(rows) )
+            .catch( err => res.status(500).json(err) );
+    })
+    .catch( err => res.status(500).json(err) );
+    /* Director.findOne({ where: { id: req.params.id } })
         .then( dir => {
             if (dir.admin) {
                 const result = idSchema.validate(req.params);
@@ -103,7 +112,7 @@ route.delete('/directors/:id', (req, res) => {
                 res.status(403).json({ msg: "Nemate pravo na ovu akciju."});
             }
         })
-        .catch( err => res.status(500).json(err) );
+        .catch( err => res.status(500).json(err) ); */
     
  
 });

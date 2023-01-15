@@ -86,8 +86,16 @@ route.put('/ratings/:id', (req, res) => {
 });
 
 route.delete('/ratings/:id', (req, res) => {
-    
     Rating.findOne({ where: { id: req.params.id } })
+    .then( rat => {
+
+        rat.destroy()
+            .then( rows => res.json(rows) )
+            .catch( err => res.status(500).json(err) );
+    })
+    .catch( err => res.status(500).json(err) );
+    
+  /*   Rating.findOne({ where: { id: req.params.id } })
         .then( rat => {
             if (rat.admin) {
                 const result = idSchema.validate(req.params);
@@ -106,7 +114,7 @@ route.delete('/ratings/:id', (req, res) => {
                 res.status(403).json({ msg: "Nemate pravo na ovu akciju."});
             }
         })
-        .catch( err => res.status(500).json(err) );
+        .catch( err => res.status(500).json(err) ); */
     
  
 });

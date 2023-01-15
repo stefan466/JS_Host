@@ -17,8 +17,8 @@ function getAllMovieCasts() {
                 alert(data.msg);
             } else {
                 data.forEach(el => {
-                    lst.innerHTML += `<li>Movie ID: ${data.movieID}, Glumac ID: ${data.actorID},
-                    Uloga: ${data.role}`;
+                    lst.innerHTML += `<li>Uloga ID: ${el.id}, Movie ID: ${el.movieID}, Glumac ID: ${el.actorID},
+                    Uloga: ${el.role}`;
                 });
             }
     });
@@ -47,7 +47,7 @@ function getMovieCastsById() {
                 if(data.msg){
                     alert(data.msg);
                 } else {
-                     lst.innerHTML += `<li>Movie ID: ${data.movieID}, Glumac ID: ${data.actorID},
+                     lst.innerHTML += `<li>Uloga ID: ${data.id}, Movie ID: ${data.movieID}, Glumac ID: ${data.actorID},
                      Uloga: ${data.role}`;
         }  
 });
@@ -60,11 +60,17 @@ function initPostMovieCast() {
 
         const data = {
             role: document.getElementById('role').value,
+            movieID: document.getElementById('movID').value,
+            actorID: document.getElementById('actID').value
             
         };
 
         document.getElementById('mcLst').innerHTML = "";
         document.getElementById('role').value = "";
+        document.getElementById('movID').value = "";
+
+        document.getElementById('actID').value = "";
+
       
         
 
@@ -81,7 +87,7 @@ function initPostMovieCast() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML +=  `<li>Movie ID: ${el.movieID}, Glumac ID: ${el.actorID},
+                    document.getElementById('mcLst').innerHTML +=  `<li>Uloga ID: ${el.id} Movie ID: ${el.movieID}, Glumac ID: ${el.actorID},
                     Uloga: ${el.role}`;
                 }
             });
@@ -95,24 +101,24 @@ function  initUpdateMovieCast() {
     document.getElementById('btn').addEventListener('click', e => {
         e.preventDefault();
 
-        const id = document.getElementById('movID').value;
+        const id = document.getElementById('mcID').value;
 
         const data = {
-            first_name: document.getElementById('first_name').value,
-            last_name: document.getElementById('last_name').value,
-            gender: document.getElementById('president').value,
+            movieID: document.getElementById('movID').value,
+            actorID: document.getElementById('actID').value,
+            role: document.getElementById('role').value,
         };
 
         
-        document.getElementById('actLst').innerHTML = "";
+        document.getElementById('mcLst').innerHTML = "";
+
+        document.getElementById('mcID').value = "";
 
         document.getElementById('movID').value = "";
+        document.getElementById('actID').value = "";
+        document.getElementById('role').value = "";
 
-        document.getElementById('first_name').value = "";
-        document.getElementById('last_name').value = "";
-        document.getElementById('gender').value = "";
-
-        fetch('http://127.0.0.1:8800/admin/actors/' + id, {
+        fetch('http://127.0.0.1:8800/admin/movie_casts/' + id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -125,7 +131,8 @@ function  initUpdateMovieCast() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML += ``;
+                    document.getElementById('mcLst').innerHTML += `<li>Uloga ID: ${el.id}, Movie ID: ${el.movieID}, Glumac ID: ${el.actorID},
+                    Uloga: ${el.role}`;
                 }
             });
     });   

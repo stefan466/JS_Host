@@ -17,6 +17,10 @@
                 <div class="col">
                     <form method="put" action="/admin/movie_casts">
                         <div class="mb-3">
+                            <label for="id" class="form-label">ID uloge:</label>
+                            <input type="number" required min="1" class="form-control" id="mcID" name="id">
+                        </div>
+                        <div class="mb-3">
                             <label for="id" class="form-label">ID filma</label>
                             <input type="number" required min="1" class="form-control" id="movID" name="id">
                         </div>
