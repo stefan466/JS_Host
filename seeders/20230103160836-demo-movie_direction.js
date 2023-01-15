@@ -14,11 +14,11 @@ module.exports = {
     */
     await queryInterface.bulkInsert('movie_directions', 
     [
-      {movieID:"901", directorID:"201"},
-      {movieID:"902", directorID:"202"},
-      {movieID:"903", directorID:"203"},
-      {movieID:"904", directorID:"204"},
-      {movieID:"905", directorID:"205"}
+      {id:"701", movieID:"901", directorID:"201"},
+      {id:"702", movieID:"902", directorID:"202"},
+      {id:"703",movieID:"903", directorID:"203"},
+      {id:"704",movieID:"904", directorID:"204"},
+      {id:"705", movieID:"905", directorID:"205"}
 
       
       

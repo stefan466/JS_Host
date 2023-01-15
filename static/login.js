@@ -1,4 +1,8 @@
 function init() {
+
+    document.getElementById('registerBtn').addEventListener('click', e=> {
+        window.location.href = 'register.html';
+    })
     document.getElementById('btn').addEventListener('click', e=> {
         e.preventDefault();
 
@@ -23,4 +27,6 @@ function init() {
             }
         });
     });
+
+   
 }

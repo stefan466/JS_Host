@@ -3,15 +3,17 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Movie_Genres', {
-      movieID: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      movieID: {
+       
+        type: Sequelize.INTEGER
+      },
       genreID: {
-        allowNull: false,
-        primaryKey: true,
         type: Sequelize.INTEGER
       },
       

@@ -14,11 +14,11 @@ module.exports = {
     */
     await queryInterface.bulkInsert('movie_casts', 
     [
-      {actorID:"101", movieID:"901", role:"John Scottie Ferguson"},
-      {actorID:"102", movieID:"902", role:"Miss Giddens"},
-      {actorID:"103", movieID:"903", role:"T.E. Lawrence"},
-      {actorID:"104", movieID:"904", role:"Michael"},
-      {actorID:"105", movieID:"905", role:"Antonio Salieri"}
+      {id:"801", actorID:"101", movieID:"901", role:"John Scottie Ferguson"},
+      {id:"802", actorID:"102", movieID:"902", role:"Miss Giddens"},
+      {id:"803", actorID:"103", movieID:"903", role:"T.E. Lawrence"},
+      {id:"804", actorID:"104", movieID:"904", role:"Michael"},
+      {id:"805",actorID:"105", movieID:"905", role:"Antonio Salieri"}
       
     
     ], {});

@@ -7,6 +7,11 @@ const movies = require('./routes/movies');
 const actors = require('./routes/actors');
 const directors = require('./routes/directors');
 const reviewers = require('./routes/reviewers');
+const genres = require('./routes/genres');
+const movie_casts = require('./routes/movie_casts');
+const movie_genres = require('./routes/movie_genres');
+const movie_direction = require('./routes/movie_directions');
+const ratings = require('./routes/ratings');
 
 const app = express();
 
@@ -18,11 +23,20 @@ var corsOptions = {
 app.use(express.json());
 app.use(cors(corsOptions));
 
-//app.use('/admin', reviewers);
-app.use('/admin', directors, movies, actors, reviewers);
-/* app.use('/admin', actors);
+app.use('/admin', ratings);
+app.use('/admin', reviewers);
+app.use('/admin', actors);
 app.use('/admin', directors);
-app.use('/admin', reviewers); */
+app.use('/admin', genres); 
+app.use('/admin', movies);
+app.use('/admin', movie_casts);
+app.use('/admin', movie_direction); 
+app.use('/admin', movie_genres);
+
+
+
+
+//app.use('/admin', directors, movies, actors, reviewers);
 
 sequelize.authenticate()
     .then(() => console.log('Konektovani ste na bazu.'))

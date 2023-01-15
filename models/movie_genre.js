@@ -22,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Movie_Genre.init({
-    name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Movie_Genre',

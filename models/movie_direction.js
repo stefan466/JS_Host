@@ -22,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Movie_Direction.init({
-    year: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Movie_Direction',
