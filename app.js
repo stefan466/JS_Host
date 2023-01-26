@@ -47,7 +47,7 @@ app.get('/login', (req, res) => {
     res.sendFile('login.html', { root: './static' });
 });
 
-app.get('/', (req, authToken, res) => {
+app.get('/', (req, res) => {
     res.sendFile('home.html', { root: './static' });
 }); 
 
