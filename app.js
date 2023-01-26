@@ -56,9 +56,9 @@ app.get('/', (req, authToken, res) => {
 //app.use(express.static(path.join(__dirname, 'static')));
 
 const staticMdl = express.static(path.join(__dirname, 'dist'));
-app.use(static);
+app.use(staticMdl);
 app.use(history({index:'/index.html'}));
-app.use(static); 
+app.use(staticMdl); 
 
 //Pokrecemo http server na portu 8000
 sequelize.authenticate()
