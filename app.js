@@ -38,7 +38,7 @@ function authToken(req, res, next) {
 }
 
 //app.use(authToken);
-app.get('/register', (req, res) => {
+/* app.get('/register', (req, res) => {
     res.sendFile('register.html', { root: './static' });
 });
 
@@ -50,7 +50,7 @@ app.get('/login', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile('home.html', { root: './static' });
 }); 
-
+ */
 
 
 //app.use(express.static(path.join(__dirname, 'static')));
