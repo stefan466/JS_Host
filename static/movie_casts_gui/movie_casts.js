@@ -26,6 +26,27 @@ function getAllMovieCasts() {
 }
 
 function deleteMovieCast() {
+    const id = document.getElementById('mcID').value;
+
+    fetch('http://127.0.0.1:8800/admin/movie_casts/' + id, {
+        method: 'DELETE',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then( res => res.json() )
+            .then( data => {
+                document.getElementById("mcLst").innerHTML = "";
+                document.getElementById('mcLst').value = "";
+                const lst = document.getElementById('mcLst');
+                
+                if(data.msg){
+                    alert(data.msg);
+                } else {
+                    lst.innerHTML += `<li>Uloga ID: ${data.id}, Movie ID: ${data.movieID}, Glumac ID: ${data.actorID},
+                    Uloga: ${data.role}`;
+                }  
+        });
 
 }
 

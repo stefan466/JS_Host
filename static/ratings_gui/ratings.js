@@ -1,7 +1,7 @@
 const cookies = document.cookie.split('=');
 const token = cookies[cookies.length - 1];
 
-function getAllRatinRgs() {
+function getAllRatings() {
     fetch('http://127.0.0.1:8800/admin/ratings', {
         headers: {
             'Authorization': `Bearer ${token}`
@@ -16,8 +16,8 @@ function getAllRatinRgs() {
                 alert(data.msg);
             } else {
                 data.forEach(el => {
-                    lst.innerHTML += `<li>ID: ${data.id}, Stars: ${data.rev_stars},
-                     Broj ocena: ${data.num_of_ratings}`;
+                    lst.innerHTML += `<li>ID: ${el.id}, Stars: ${el.rev_stars},
+                     Broj ocena: ${el.num_of_ratings}`;
                 });
             }
     });
@@ -104,7 +104,7 @@ function initPostRating() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML +=  `<li>ID: ${el.id}, Stars: ${el.rev_stars},
+                    document.getElementById('ratLst').innerHTML +=  `<li>ID: ${el.id}, Stars: ${el.rev_stars},
                     Broj ocena: ${el.num_of_ratings}`;
                 }
             });
@@ -148,7 +148,7 @@ function initUpdateRating() {
                 if (el.msg) {
                     alert(el.msg);
                 } else {
-                    document.getElementById('actLst').innerHTML += `<li>ID: ${el.id}, Stars: ${el.rev_stars},
+                    document.getElementById('ratLst').innerHTML += `<li>ID: ${el.id}, Stars: ${el.rev_stars},
                     Broj ocena: ${el.num_of_ratings}`;
                 }
             });

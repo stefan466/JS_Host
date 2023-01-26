@@ -63,6 +63,7 @@ app.post('/auth_login', (req, res) => {
   
     console.log("Usao u /login");
     console.log(req.body.username);
+    const result = loginSchema.validate(req.body);
 
     Reviewer.findOne({ where: { username: req.body.username } })
         .then( usr => {

@@ -3,7 +3,7 @@ const path = require('path');
 const { sequelize } = require('./models');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
-const PORT = 8080;
+const PORT = 8090;
 
 const app = express();
 
@@ -36,15 +36,17 @@ function authToken(req, res, next) {
 
 }
 
+//app.use(authToken);
 app.get('/register', (req, res) => {
     res.sendFile('register.html', { root: './static' });
 });
+
 
 app.get('/login', (req, res) => {
     res.sendFile('login.html', { root: './static' });
 });
 
-app.get('/', (req,authToken, res) => {
+app.get('/', (req, authToken, res) => {
     res.sendFile('home.html', { root: './static' });
 }); 
 

@@ -70,10 +70,12 @@ function deleteMovie() {
                 if(data.msg){
                     alert(data.msg);
                 } else {
-                    lst.innerHTML += `<li>ID: ${data.id}, Ime: ${data.first_name},
-                    Prezime: ${data.last_name}, Pol: ${data.gender}</li>`;
+                    lst.innerHTML += `<li>ID: ${data.id}, Naziv filma: ${data.mov_title},
+                    Jezik: ${data.mov_lang}, Godina: ${data.mov_year}</li>, Vreme trajanja: ${data.mov_time}, 
+                    Drzava: ${data.mov_rel_country}`;
                 }  
         });
+
 
 
 }

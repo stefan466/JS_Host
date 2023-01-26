@@ -121,7 +121,7 @@ function initUpdateReviewer() {
     document.getElementById('btn').addEventListener('click', e => {
         e.preventDefault();
 
-        const id = document.getElementById('user_id').value;
+        const id = document.getElementById('revID').value;
 
         const data = {
             first_name: document.getElementById('first_name').value,
