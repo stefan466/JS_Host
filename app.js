@@ -4,6 +4,7 @@ const { sequelize } = require('./models');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const PORT = 8090;
+const history = require('connect-history-api-fallback');
 
 const app = express();
 
@@ -52,9 +53,12 @@ app.get('/', (req, authToken, res) => {
 
 
 
-app.use(express.static(path.join(__dirname, 'static')));
+//app.use(express.static(path.join(__dirname, 'static')));
 
-
+const staticMdl = express.static(path.join(__dirname, 'dist'));
+app.use(static);
+app.use(history({index:'/index.html'}));
+app.use(static); 
 
 //Pokrecemo http server na portu 8000
 sequelize.authenticate()

@@ -1,24 +1,36 @@
 {
     "development": {
-      "username": "root",
-      "password": "",
-      "database": "sjprojekat",
-      "host": "127.0.0.1",
-      "dialect": "mariadb",
-      "logging": false
-    },
-    "test": {
-      "username": "root",
-      "password": null,
-      "database": "database_test",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
+      "username": "project",
+      "password": "2TW5lX57rAhopXB6A6fDo8VVzcusts1h",
+      "database": "projectdb_3542",
+      "host": "dpg-cf9g654gqg47p3v5ndu0-a.frankfurt-postgres.render.com",
+      "url":"postgres://project:2TW5lX57rAhopXB6A6fDo8VVzcusts1h@dpg-cf9g654gqg47p3v5ndu0-a.frankfurt-postgres.render.com/projectdb_3542",
+      "port":5432,
+      "dialect": "postgres",
+      "logging": false,
+      "sl1":true,
+      "dialectOptions": {
+        "ssl": {
+          "require":true,
+          "rejectUnauthorized":false
+        }
+      }
     },
     "production": {
-      "username": "root",
-      "password": null,
-      "database": "database_production",
-      "host": "127.0.0.1",
-      "dialect": "mysql"
+      "username": "project",
+      "password": "2TW5lX57rAhopXB6A6fDo8VVzcusts1h",
+      "database": "projectdb_3542",
+      "host": "dpg-cf9g654gqg47p3v5ndu0-a.frankfurt-postgres.render.com",
+      "url":"postgres://project:2TW5lX57rAhopXB6A6fDo8VVzcusts1h@dpg-cf9g654gqg47p3v5ndu0-a/projectdb_3542",
+      "port":5432,
+      "dialect": "postgres",
+      "logging": false,
+      "sl1":true,
+      "dialectOptions": {
+        "ssl": {
+          "require":true,
+          "rejectUnauthorized":false
+        }
+      }
     }
   }

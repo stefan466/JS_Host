@@ -16,7 +16,7 @@ const ratings = require('./routes/ratings');
 const app = express();
 
 var corsOptions = {
-    origin: '*',
+    origin: 'https://js-host.onrender.com',
     optionsSuccessStatus: 200
 }
 

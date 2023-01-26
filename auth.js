@@ -9,7 +9,7 @@ const PORT = 9400;
 const app = express();
 
 var corsOptions = {
-    origin: '*',
+    origin: 'https://js-host.onrender.com',
     optionsSuccessStatus: 200
 }
 
